@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2319616719243843298}
   - component: {fileID: 7970532541746796336}
   - component: {fileID: 5939410742724340531}
-  - component: {fileID: 245848599817917291}
   - component: {fileID: 2380846350709723106}
   m_Layer: 0
   m_Name: Background
@@ -86,18 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &245848599817917291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6304929417434886949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 371da50e172b097469e58a21017316a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &2380846350709723106
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -131,9 +118,8 @@ GameObject:
   - component: {fileID: 2170688970910976414}
   - component: {fileID: 6349483654810221389}
   - component: {fileID: 6364489481798900443}
-  - component: {fileID: 7185373480766266540}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,7 +165,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 4919541128396521990, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -221,10 +207,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Goal
+  m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
+  m_sharedMaterial: {fileID: 4919541128396521990, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -254,9 +240,9 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -293,18 +279,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 6349483654810221389}
   m_maskType: 0
---- !u!114 &7185373480766266540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6478583258199295060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee650b77785006f45b75668c1f68bfa2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7487318257640645622
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,7 +443,6 @@ GameObject:
   - component: {fileID: 5044969174197534938}
   - component: {fileID: 4255614967949308985}
   - component: {fileID: 9047206221461662884}
-  - component: {fileID: 5036964163570797809}
   m_Layer: 0
   m_Name: Accent
   m_TagString: Untagged
@@ -564,15 +537,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &5036964163570797809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8986097928250315874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b002a7fa3db6ca84da070e60231d56dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

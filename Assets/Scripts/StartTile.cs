@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class NullTile : MonoBehaviour
+public class StartTile : MonoBehaviour
 {
     private void Start()
     {
@@ -11,8 +11,9 @@ public class NullTile : MonoBehaviour
         Transform accent = transform.Find("Accent");
         Transform text = background.Find("Text");
 
-        background.GetComponent<MeshRenderer>().material.color = new Color32(159, 92, 92, 255);
+        background.GetComponent<MeshRenderer>().material.color = new Color32(92, 92, 159, 255);
         accent.gameObject.SetActive(false);
-        text.GetComponent<TextMeshPro>().text = "NULL";
+        text.GetComponent<TextMeshPro>().text = "Start";
     }
 }
+
