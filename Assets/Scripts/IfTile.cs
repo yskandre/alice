@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class IfTile : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] MoveOrder allowedCommand;
 
-    // Update is called once per frame
-    void Update()
+    public MoveOrder getAllowedCommand()
     {
-        
+        return allowedCommand;
     }
 }

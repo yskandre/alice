@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class LoopTile : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] MoveOrder loopCommand;
+    [SerializeField] int loopAmount;
+
+    public MoveOrder getLoopCommand()
     {
-        
+        return loopCommand;
     }
 
-    // Update is called once per frame
-    void Update()
+    public int getLoopAmount()
     {
-        
+        return loopAmount;
     }
 }

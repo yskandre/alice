@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class SwitchTile : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] CaseTile fwdCase;
+    [SerializeField] CaseTile leftCase;
+    [SerializeField] CaseTile rightCase;
+
+    public CaseTile getFwdCase()
     {
-        
+        return fwdCase;
     }
 
-    // Update is called once per frame
-    void Update()
+    public CaseTile getLeftCase()
     {
-        
+        return leftCase;
+    }
+
+    public CaseTile getRightCase()
+    {
+        return rightCase;
     }
 }

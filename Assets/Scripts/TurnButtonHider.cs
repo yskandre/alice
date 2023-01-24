@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CodeTile : MonoBehaviour
+public class TurnButtonHider : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        this.gameObject.SetActive(GameObject.Find("SystemData").GetComponent<SystemData>().solvedCode[1]);
     }
 }
