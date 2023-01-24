@@ -15,7 +15,7 @@ public class LoopTile : MonoBehaviour
 
         background.GetComponent<MeshRenderer>().material.color = new Color32(92, 92, 159, 255);
         accent.gameObject.SetActive(false);
-        text.GetComponent<TextMeshPro>().text = (loopCommand == MoveOrder.forward ? "Fwd" : loopCommand == MoveOrder.left ? "Left" : "Right") + "x" + loopAmount;
+        text.GetComponent<TextMeshPro>().text = (loopCommand == MoveOrder.forward ? "Fwd" : loopCommand == MoveOrder.left ? "Left" : "Right") + "\nx" + loopAmount;
     }
 
     public MoveOrder getLoopCommand()

@@ -17,6 +17,6 @@ public class CaseTile : MonoBehaviour
 
         background.GetComponent<MeshRenderer>().material.color = new Color32(red, blue, green, 255);
         accent.gameObject.SetActive(false);
-        text.GetComponent<TextMeshPro>().text = option == MoveOrder.forward ? "Fwd" : option == MoveOrder.left ? "Left" : "Right";
+        text.GetComponent<TextMeshPro>().text = "Case\n" + (option == MoveOrder.forward ? "Fwd" : option == MoveOrder.left ? "Left" : "Right");
     }
 }

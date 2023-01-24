@@ -21,6 +21,7 @@ public class AddCommand : MonoBehaviour
     [SerializeField] Image left;
     [SerializeField] Image right;
     [SerializeField] Canvas canvas;
+    [SerializeField] GameObject loopIcon;
     [SerializeField] GameObject loopText;
     [SerializeField] GameObject queueText;
     [SerializeField] GameObject funcText;
@@ -112,84 +113,10 @@ public class AddCommand : MonoBehaviour
     {
         Image tempImage;
         bool changedTile = false;
-        foreach (MoveOrder m in orders)
+        MoveOrder m;
+        while (loopActive || orders.Count > 0)
         {
             changedTile = false;
-            if (funcActive)
-            {
-                tempImage = orderImages.Dequeue();
-                tempImage.transform.localPosition = new Vector3(tempImage.transform.localPosition.x - (.5f * 100 * (1920 / Screen.width)), tempImage.transform.localPosition.y, tempImage.transform.localPosition.z);
-                foreach (Image i in orderImages)
-                {
-                    i.transform.localPosition = new Vector3(i.transform.localPosition.x - (.1f * 100 * (1920 / Screen.width)), i.transform.localPosition.y, i.transform.localPosition.z);
-                }
-                Destroy(tempImage.gameObject);
-
-                switch (m)
-                {
-                    case MoveOrder.forward:
-                        transform.position = new Vector3(transform.position.x + (directions[currentDir].x * 20), transform.position.y, transform.position.z + (directions[currentDir].y * 20));
-                        changedTile = true;
-                        break;
-                    case MoveOrder.left:
-                        currentDir = (currentDir + 3) % 4;
-                        transform.Rotate(0, -90, 0);
-                        break;
-                    case MoveOrder.right:
-                        currentDir = (currentDir + 1) % 4;
-                        transform.Rotate(0, 90, 0);
-                        break;
-                }
-
-                changedTile = true;
-            }
-            if (queueActive)
-            {
-                if (orderImages.Count <= 0)
-                {
-                    queueActive = false;
-                    queueAmount = 0;
-                    continue;
-                }
-
-                tempImage = orderImages.Dequeue();
-                tempImage.transform.localPosition = new Vector3(tempImage.transform.localPosition.x - (.5f * 100 * (1920 / Screen.width)), tempImage.transform.localPosition.y, tempImage.transform.localPosition.z);
-                foreach (Image i in orderImages)
-                {
-                    i.transform.localPosition = new Vector3(i.transform.localPosition.x - (.1f * 100 * (1920 / Screen.width)), i.transform.localPosition.y, i.transform.localPosition.z);
-                }
-                Destroy(tempImage.gameObject);
-
-                queueAmount--;
-
-                if (queueAmount <= 0) queueActive = false;
-                UpdateQueueUI();
-            }
-            if (switchActive)
-            {
-                tempImage = orderImages.Dequeue();
-                tempImage.transform.localPosition = new Vector3(tempImage.transform.localPosition.x - (.5f * 100 * (1920 / Screen.width)), tempImage.transform.localPosition.y, tempImage.transform.localPosition.z);
-                foreach (Image i in orderImages)
-                {
-                    i.transform.localPosition = new Vector3(i.transform.localPosition.x - (.1f * 100 * (1920 / Screen.width)), i.transform.localPosition.y, i.transform.localPosition.z);
-                }
-                Destroy(tempImage.gameObject);
-
-                switch (m)
-                {
-                    case MoveOrder.forward:
-                        transform.position = new Vector3(fwdCase.transform.position.x, transform.position.y, fwdCase.transform.position.z);
-                        break;
-                    case MoveOrder.left:
-                        transform.position = new Vector3(leftCase.transform.position.x, transform.position.y, leftCase.transform.position.z);
-                        break;
-                    case MoveOrder.right:
-                        transform.position = new Vector3(rightCase.transform.position.x, transform.position.y, rightCase.transform.position.z);
-                        break;
-                }
-                changedTile = true;
-                switchActive = false;
-            }
 
             if (loopActive)
             {
@@ -216,14 +143,124 @@ public class AddCommand : MonoBehaviour
                     yield return Wait();
                 }
                 loopActive = false;
-
+                UpdateLoopUI();
+                continue;
             }
-
-            if (ifActive)
+            else
             {
-                if (m == allowedCommand)
+                m = orders.Dequeue();
+                if (funcActive)
                 {
-                    ifActive = false;
+                    tempImage = orderImages.Dequeue();
+                    tempImage.transform.localPosition = new Vector3(tempImage.transform.localPosition.x - (.5f * 100 * (1920 / Screen.width)), tempImage.transform.localPosition.y, tempImage.transform.localPosition.z);
+                    foreach (Image i in orderImages)
+                    {
+                        i.transform.localPosition = new Vector3(i.transform.localPosition.x - (.1f * 100 * (1920 / Screen.width)), i.transform.localPosition.y, i.transform.localPosition.z);
+                    }
+                    Destroy(tempImage.gameObject);
+
+                    switch (m)
+                    {
+                        case MoveOrder.forward:
+                            transform.position = new Vector3(transform.position.x + (directions[currentDir].x * 20), transform.position.y, transform.position.z + (directions[currentDir].y * 20));
+                            changedTile = true;
+                            break;
+                        case MoveOrder.left:
+                            currentDir = (currentDir + 3) % 4;
+                            transform.Rotate(0, -90, 0);
+                            break;
+                        case MoveOrder.right:
+                            currentDir = (currentDir + 1) % 4;
+                            transform.Rotate(0, 90, 0);
+                            break;
+                    }
+                }
+                else if (queueActive)
+                {
+                    if (orderImages.Count <= 0)
+                    {
+                        queueActive = false;
+                        queueAmount = 0;
+                        continue;
+                    }
+
+                    tempImage = orderImages.Dequeue();
+                    tempImage.transform.localPosition = new Vector3(tempImage.transform.localPosition.x - (.5f * 100 * (1920 / Screen.width)), tempImage.transform.localPosition.y, tempImage.transform.localPosition.z);
+                    foreach (Image i in orderImages)
+                    {
+                        i.transform.localPosition = new Vector3(i.transform.localPosition.x - (.1f * 100 * (1920 / Screen.width)), i.transform.localPosition.y, i.transform.localPosition.z);
+                    }
+                    Destroy(tempImage.gameObject);
+
+                    queueAmount--;
+
+                    if (queueAmount <= 0) queueActive = false;
+                    UpdateQueueUI();
+                }
+                else if (switchActive)
+                {
+                    tempImage = orderImages.Dequeue();
+                    tempImage.transform.localPosition = new Vector3(tempImage.transform.localPosition.x - (.5f * 100 * (1920 / Screen.width)), tempImage.transform.localPosition.y, tempImage.transform.localPosition.z);
+                    foreach (Image i in orderImages)
+                    {
+                        i.transform.localPosition = new Vector3(i.transform.localPosition.x - (.1f * 100 * (1920 / Screen.width)), i.transform.localPosition.y, i.transform.localPosition.z);
+                    }
+                    Destroy(tempImage.gameObject);
+
+                    switch (m)
+                    {
+                        case MoveOrder.forward:
+                            transform.position = new Vector3(fwdCase.transform.position.x, transform.position.y, fwdCase.transform.position.z);
+                            break;
+                        case MoveOrder.left:
+                            transform.position = new Vector3(leftCase.transform.position.x, transform.position.y, leftCase.transform.position.z);
+                            break;
+                        case MoveOrder.right:
+                            transform.position = new Vector3(rightCase.transform.position.x, transform.position.y, rightCase.transform.position.z);
+                            break;
+                    }
+                    changedTile = true;
+                    switchActive = false;
+                }
+                else if (ifActive)
+                {
+                    if (m == allowedCommand)
+                    {
+                        tempImage = orderImages.Dequeue();
+                        tempImage.transform.localPosition = new Vector3(tempImage.transform.localPosition.x - (.5f * 100 * (1920 / Screen.width)), tempImage.transform.localPosition.y, tempImage.transform.localPosition.z);
+                        foreach (Image i in orderImages)
+                        {
+                            i.transform.localPosition = new Vector3(i.transform.localPosition.x - (.1f * 100 * (1920 / Screen.width)), i.transform.localPosition.y, i.transform.localPosition.z);
+                        }
+                        Destroy(tempImage.gameObject);
+
+                        switch (m)
+                        {
+                            case MoveOrder.forward:
+                                transform.position = new Vector3(transform.position.x + (directions[currentDir].x * 10), transform.position.y, transform.position.z + (directions[currentDir].y * 10));
+                                changedTile = true;
+                                break;
+                            case MoveOrder.left:
+                                currentDir = (currentDir + 3) % 4;
+                                transform.Rotate(0, -90, 0);
+                                break;
+                            case MoveOrder.right:
+                                currentDir = (currentDir + 1) % 4;
+                                transform.Rotate(0, 90, 0);
+                                break;
+                        }
+                        ifActive = false;
+                    }
+                    else
+                    {
+                        tempImage = orderImages.Dequeue();
+                        tempImage.transform.localPosition = new Vector3(tempImage.transform.localPosition.x - (.5f * 100 * (1920 / Screen.width)), tempImage.transform.localPosition.y, tempImage.transform.localPosition.z);
+                        foreach (Image i in orderImages)
+                        {
+                            i.transform.localPosition = new Vector3(i.transform.localPosition.x - (.1f * 100 * (1920 / Screen.width)), i.transform.localPosition.y, i.transform.localPosition.z);
+                        }
+                        Destroy(tempImage.gameObject);
+                    }
                 }
                 else
                 {
@@ -234,44 +271,32 @@ public class AddCommand : MonoBehaviour
                         i.transform.localPosition = new Vector3(i.transform.localPosition.x - (.1f * 100 * (1920 / Screen.width)), i.transform.localPosition.y, i.transform.localPosition.z);
                     }
                     Destroy(tempImage.gameObject);
-                    continue;
+
+                    switch (m)
+                    {
+                        case MoveOrder.forward:
+                            transform.position = new Vector3(transform.position.x + (directions[currentDir].x * 10), transform.position.y, transform.position.z + (directions[currentDir].y * 10));
+                            changedTile = true;
+                            break;
+                        case MoveOrder.left:
+                            currentDir = (currentDir + 3) % 4;
+                            transform.Rotate(0, -90, 0);
+                            break;
+                        case MoveOrder.right:
+                            currentDir = (currentDir + 1) % 4;
+                            transform.Rotate(0, 90, 0);
+                            break;
+                    }
                 }
             }
-
-            if (!switchActive || !loopActive || !funcActive || !queueActive)
+            if (!changedTile)
             {
-                tempImage = orderImages.Dequeue();
-                tempImage.transform.localPosition = new Vector3(tempImage.transform.localPosition.x - (.5f * 100 * (1920 / Screen.width)), tempImage.transform.localPosition.y, tempImage.transform.localPosition.z);
-                foreach (Image i in orderImages)
-                {
-                    i.transform.localPosition = new Vector3(i.transform.localPosition.x - (.1f * 100 * (1920 / Screen.width)), i.transform.localPosition.y, i.transform.localPosition.z);
-                }
-                Destroy(tempImage.gameObject);
-
-                switch (m)
-                {
-                    case MoveOrder.forward:
-                        transform.position = new Vector3(transform.position.x + (directions[currentDir].x * 10), transform.position.y, transform.position.z + (directions[currentDir].y * 10));
-                        changedTile = true;
-                        break;
-                    case MoveOrder.left:
-                        currentDir = (currentDir + 3) % 4;
-                        transform.Rotate(0, -90, 0);
-                        break;
-                    case MoveOrder.right:
-                        currentDir = (currentDir + 1) % 4;
-                        transform.Rotate(0, 90, 0);
-                        break;
-                }
-
-                changedTile = true;
+                yield return Wait();
+                continue;
             }
-
-            if (!changedTile) continue;
-
             GameObject currentTile = GameObject.Find(GetCurrentCoords());
 
-            if (currentTile == null || currentTile.GetComponent<NullTile>() != null || (currentTile.GetComponent<LockTile>() != null && currentTile.GetComponent<LockTile>().isOpen()))
+            if (currentTile == null || currentTile.GetComponent<NullTile>() != null || (currentTile.GetComponent<LockTile>() != null && !currentTile.GetComponent<LockTile>().isOpen()))
             {
                 // Lose, restart
                 lossText.SetActive(true);
@@ -313,7 +338,8 @@ public class AddCommand : MonoBehaviour
             }
             else if (currentTile.GetComponent<FunctionTile>() != null)
             {
-                funcActive = currentTile.GetComponent<FunctionTile>().isActive();
+                funcActive = !funcActive;
+                UpdateFuncUI();
             }
             yield return Wait();
         }
@@ -341,9 +367,29 @@ public class AddCommand : MonoBehaviour
         orders = new Queue<MoveOrder>();
         queuePos = 0.0f;
         canExecute = true;
+
+        funcActive = false;
+        ifActive = false;
+        loopActive = false;
+        queueActive = false;
+        switchActive = false;
+
+        UpdateLoopUI();
+        UpdateFuncUI();
+        UpdateLoopUI();
+
         currentDir = 0;
         transform.position = new Vector3(startingX, transform.position.y, startingZ);
         transform.rotation = Quaternion.identity;
+
+        foreach (KeyTile k in GameObject.FindObjectsOfType<KeyTile>())
+        {
+            k.ResetState();
+        }
+        foreach (LockTile l in GameObject.FindObjectsOfType<LockTile>())
+        {
+            l.ResetState();
+        }
     }
 
     string GetCurrentCoords()
@@ -361,13 +407,13 @@ public class AddCommand : MonoBehaviour
         switch (loopCommand)
         {
             case MoveOrder.forward:
-                loopText.GetComponent<Image>().sprite = forward.sprite;
+                loopIcon.GetComponent<Image>().sprite = forward.sprite;
                 break;
             case MoveOrder.left:
-                loopText.GetComponent<Image>().sprite = left.sprite;
+                loopIcon.GetComponent<Image>().sprite = left.sprite;
                 break;
             case MoveOrder.right:
-                loopText.GetComponent<Image>().sprite = right.sprite;
+                loopIcon.GetComponent<Image>().sprite = right.sprite;
                 break;
         }
         loopText.SetActive(loopActive);

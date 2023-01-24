@@ -14,7 +14,7 @@ public class IfTile : MonoBehaviour
 
         background.GetComponent<MeshRenderer>().material.color = new Color32(92, 92, 112, 255);
         accent.gameObject.SetActive(false);
-        text.GetComponent<TextMeshPro>().text = "If(" + (allowedCommand == MoveOrder.forward ? "Fwd" : allowedCommand == MoveOrder.left ? "Left" : "Right");
+        text.GetComponent<TextMeshPro>().text = "If\n" + (allowedCommand == MoveOrder.forward ? "Fwd" : allowedCommand == MoveOrder.left ? "Left" : "Right");
     }
     public MoveOrder getAllowedCommand()
     {
