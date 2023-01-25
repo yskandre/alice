@@ -3269,6 +3269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockTile: {fileID: 1107885510}
   openLock: 1
+  initialState: 1
   red: 159
   blue: 159
   green: 159
@@ -5018,6 +5019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: 0
+  initialState: 0
   red: 159
   blue: 159
   green: 159
@@ -7580,6 +7582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockTile: {fileID: 1107885510}
   openLock: 1
+  initialState: 1
   red: 159
   blue: 159
   green: 159

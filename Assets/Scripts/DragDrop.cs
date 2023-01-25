@@ -59,7 +59,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void SimplifyText()
     {
-        textField.text = shortText;
+        if (shortText != "") textField.text = shortText;
         textField.alignment = TextAlignmentOptions.Center;
     }
 }

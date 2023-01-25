@@ -6,14 +6,13 @@ using TMPro;
 public class KeyTile : MonoBehaviour
 {
     [SerializeField] LockTile lockTile;
-    [SerializeField] bool openLock;
+    [SerializeField] bool openLock = true;
+    [SerializeField] bool initialState;
     [SerializeField] byte red = 159;
     [SerializeField] byte blue = 92;
     [SerializeField] byte green = 159;
-    private bool initialState;
     private void Start()
     {
-        initialState = openLock;
         Transform background = transform.Find("Background");
         Transform accent = transform.Find("Accent");
         Transform text = background.Find("Text");

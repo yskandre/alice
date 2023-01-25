@@ -55,7 +55,7 @@ public class AddCommand : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        init();
     }
 
     // Update is called once per frame
@@ -144,7 +144,6 @@ public class AddCommand : MonoBehaviour
                 }
                 loopActive = false;
                 UpdateLoopUI();
-                continue;
             }
             else
             {
@@ -159,20 +158,24 @@ public class AddCommand : MonoBehaviour
                     }
                     Destroy(tempImage.gameObject);
 
-                    switch (m)
+                    if ((ifActive && allowedCommand == m) || !ifActive)
                     {
-                        case MoveOrder.forward:
-                            transform.position = new Vector3(transform.position.x + (directions[currentDir].x * 20), transform.position.y, transform.position.z + (directions[currentDir].y * 20));
-                            changedTile = true;
-                            break;
-                        case MoveOrder.left:
-                            currentDir = (currentDir + 3) % 4;
-                            transform.Rotate(0, -90, 0);
-                            break;
-                        case MoveOrder.right:
-                            currentDir = (currentDir + 1) % 4;
-                            transform.Rotate(0, 90, 0);
-                            break;
+                        switch (m)
+                        {
+                            case MoveOrder.forward:
+                                transform.position = new Vector3(transform.position.x + (directions[currentDir].x * 20), transform.position.y, transform.position.z + (directions[currentDir].y * 20));
+                                changedTile = true;
+                                break;
+                            case MoveOrder.left:
+                                currentDir = (currentDir + 3) % 4;
+                                transform.Rotate(0, -90, 0);
+                                break;
+                            case MoveOrder.right:
+                                currentDir = (currentDir + 1) % 4;
+                                transform.Rotate(0, 90, 0);
+                                break;
+                        }
+                        ifActive = false;
                     }
                 }
                 else if (queueActive)

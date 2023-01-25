@@ -1111,6 +1111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: 1
+  initialState: 1
   red: 159
   blue: 159
   green: 159
@@ -1583,6 +1584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockTile: {fileID: 121085276}
   openLock: 0
+  initialState: 0
   red: 159
   blue: 159
   green: 159
@@ -3136,6 +3138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: 0
+  initialState: 0
   red: 92
   blue: 159
   green: 159
@@ -3157,6 +3160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: 0
+  initialState: 0
   red: 159
   blue: 159
   green: 92
@@ -4890,6 +4894,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockTile: {fileID: 738492447}
   openLock: 1
+  initialState: 1
   red: 159
   blue: 159
   green: 92
@@ -5640,6 +5645,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockTile: {fileID: 730218089}
   openLock: 1
+  initialState: 1
   red: 92
   blue: 159
   green: 159
@@ -6068,6 +6074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockTile: {fileID: 1917509218}
   openLock: 1
+  initialState: 1
   red: 159
   blue: 92
   green: 159
@@ -6822,6 +6829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: 0
+  initialState: 0
   red: 159
   blue: 92
   green: 159

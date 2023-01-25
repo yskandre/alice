@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 
 public class CodeSlot : MonoBehaviour, IDropHandler
 {
-    [SerializeField] RectTransform target;
     [SerializeField] int slotId;
     public GameObject lastDrop;
     public bool droppedOn = false;
