@@ -69,7 +69,7 @@ public class AddCommand : MonoBehaviour
         if (canExecute)
         {
             Image orderImage = Instantiate(forward, new Vector3(0f, 0f, 0f), Quaternion.identity, parent);
-            orderImage.transform.localPosition = new Vector3((100 + (queuePos * 150f)) * (1920 / Screen.width), 200 * (1080 / Screen.height), 0);
+            orderImage.transform.localPosition = new Vector3(890 * (1920 / Screen.width), (470 - (queuePos * 150f)) * (1080 / Screen.height), 0);
             orderImages.Enqueue(orderImage);
             orders.Enqueue(MoveOrder.forward);
             queuePos += .1f;
@@ -81,7 +81,7 @@ public class AddCommand : MonoBehaviour
         if (canExecute)
         {
             Image orderImage = Instantiate(left, new Vector3(0f, 0f, 0f), Quaternion.identity, parent);
-            orderImage.transform.localPosition = new Vector3((100 + (queuePos * 150f)) * (1920 / Screen.width), 200 * (1080 / Screen.height), 0);
+            orderImage.transform.localPosition = new Vector3(890 * (1920 / Screen.width), (470 - (queuePos * 150f)) * (1080 / Screen.height), 0);
             orderImages.Enqueue(orderImage);
             orders.Enqueue(MoveOrder.left);
             queuePos += .1f;
@@ -93,7 +93,7 @@ public class AddCommand : MonoBehaviour
         if (canExecute)
         {
             Image orderImage = Instantiate(right, new Vector3(0f, 0f, 0f), Quaternion.identity, parent);
-            orderImage.transform.localPosition = new Vector3((100 + (queuePos * 150f)) * (1920 / Screen.width), 200 * (1080 / Screen.height), 0);
+            orderImage.transform.localPosition = new Vector3(890 * (1920 / Screen.width), (470 - (queuePos * 150f)) * (1080 / Screen.height), 0);
             orderImages.Enqueue(orderImage);
             orders.Enqueue(MoveOrder.right);
             queuePos += .1f;
@@ -151,10 +151,10 @@ public class AddCommand : MonoBehaviour
                 if (funcActive)
                 {
                     tempImage = orderImages.Dequeue();
-                    tempImage.transform.localPosition = new Vector3(tempImage.transform.localPosition.x - (.5f * 100 * (1920 / Screen.width)), tempImage.transform.localPosition.y, tempImage.transform.localPosition.z);
+                    tempImage.transform.localPosition = new Vector3(tempImage.transform.localPosition.x, tempImage.transform.localPosition.y - (.5f * 100 * (1080 / Screen.width)), tempImage.transform.localPosition.z);
                     foreach (Image i in orderImages)
                     {
-                        i.transform.localPosition = new Vector3(i.transform.localPosition.x - (.1f * 100 * (1920 / Screen.width)), i.transform.localPosition.y, i.transform.localPosition.z);
+                        i.transform.localPosition = new Vector3(i.transform.localPosition.x, i.transform.localPosition.y - (.1f * 100 * (1080 / Screen.width)), i.transform.localPosition.z);
                     }
                     Destroy(tempImage.gameObject);
 
@@ -188,10 +188,10 @@ public class AddCommand : MonoBehaviour
                     }
 
                     tempImage = orderImages.Dequeue();
-                    tempImage.transform.localPosition = new Vector3(tempImage.transform.localPosition.x - (.5f * 100 * (1920 / Screen.width)), tempImage.transform.localPosition.y, tempImage.transform.localPosition.z);
+                    tempImage.transform.localPosition = new Vector3(tempImage.transform.localPosition.x, tempImage.transform.localPosition.y - (.5f * 100 * (1080 / Screen.width)), tempImage.transform.localPosition.z);
                     foreach (Image i in orderImages)
                     {
-                        i.transform.localPosition = new Vector3(i.transform.localPosition.x - (.1f * 100 * (1920 / Screen.width)), i.transform.localPosition.y, i.transform.localPosition.z);
+                        i.transform.localPosition = new Vector3(i.transform.localPosition.x, i.transform.localPosition.y - (.1f * 100 * (1080 / Screen.width)), i.transform.localPosition.z);
                     }
                     Destroy(tempImage.gameObject);
 
@@ -203,10 +203,10 @@ public class AddCommand : MonoBehaviour
                 else if (switchActive)
                 {
                     tempImage = orderImages.Dequeue();
-                    tempImage.transform.localPosition = new Vector3(tempImage.transform.localPosition.x - (.5f * 100 * (1920 / Screen.width)), tempImage.transform.localPosition.y, tempImage.transform.localPosition.z);
+                    tempImage.transform.localPosition = new Vector3(tempImage.transform.localPosition.x, tempImage.transform.localPosition.y - (.5f * 100 * (1080 / Screen.width)), tempImage.transform.localPosition.z);
                     foreach (Image i in orderImages)
                     {
-                        i.transform.localPosition = new Vector3(i.transform.localPosition.x - (.1f * 100 * (1920 / Screen.width)), i.transform.localPosition.y, i.transform.localPosition.z);
+                        i.transform.localPosition = new Vector3(i.transform.localPosition.x, i.transform.localPosition.y - (.1f * 100 * (1080 / Screen.width)), i.transform.localPosition.z);
                     }
                     Destroy(tempImage.gameObject);
 
@@ -230,10 +230,10 @@ public class AddCommand : MonoBehaviour
                     if (m == allowedCommand)
                     {
                         tempImage = orderImages.Dequeue();
-                        tempImage.transform.localPosition = new Vector3(tempImage.transform.localPosition.x - (.5f * 100 * (1920 / Screen.width)), tempImage.transform.localPosition.y, tempImage.transform.localPosition.z);
+                        tempImage.transform.localPosition = new Vector3(tempImage.transform.localPosition.x, tempImage.transform.localPosition.y - (.5f * 100 * (1080 / Screen.width)), tempImage.transform.localPosition.z);
                         foreach (Image i in orderImages)
                         {
-                            i.transform.localPosition = new Vector3(i.transform.localPosition.x - (.1f * 100 * (1920 / Screen.width)), i.transform.localPosition.y, i.transform.localPosition.z);
+                            i.transform.localPosition = new Vector3(i.transform.localPosition.x, i.transform.localPosition.y - (.1f * 100 * (1080 / Screen.width)), i.transform.localPosition.z);
                         }
                         Destroy(tempImage.gameObject);
 
@@ -257,10 +257,10 @@ public class AddCommand : MonoBehaviour
                     else
                     {
                         tempImage = orderImages.Dequeue();
-                        tempImage.transform.localPosition = new Vector3(tempImage.transform.localPosition.x - (.5f * 100 * (1920 / Screen.width)), tempImage.transform.localPosition.y, tempImage.transform.localPosition.z);
+                        tempImage.transform.localPosition = new Vector3(tempImage.transform.localPosition.x, tempImage.transform.localPosition.y - (.5f * 100 * (1080 / Screen.width)), tempImage.transform.localPosition.z);
                         foreach (Image i in orderImages)
                         {
-                            i.transform.localPosition = new Vector3(i.transform.localPosition.x - (.1f * 100 * (1920 / Screen.width)), i.transform.localPosition.y, i.transform.localPosition.z);
+                            i.transform.localPosition = new Vector3(i.transform.localPosition.x, i.transform.localPosition.y - (.1f * 100 * (1080 / Screen.width)), i.transform.localPosition.z);
                         }
                         Destroy(tempImage.gameObject);
                     }
@@ -268,10 +268,10 @@ public class AddCommand : MonoBehaviour
                 else
                 {
                     tempImage = orderImages.Dequeue();
-                    tempImage.transform.localPosition = new Vector3(tempImage.transform.localPosition.x - (.5f * 100 * (1920 / Screen.width)), tempImage.transform.localPosition.y, tempImage.transform.localPosition.z);
+                    tempImage.transform.localPosition = new Vector3(tempImage.transform.localPosition.x, tempImage.transform.localPosition.y - (.5f * 100 * (1080 / Screen.width)), tempImage.transform.localPosition.z);
                     foreach (Image i in orderImages)
                     {
-                        i.transform.localPosition = new Vector3(i.transform.localPosition.x - (.1f * 100 * (1920 / Screen.width)), i.transform.localPosition.y, i.transform.localPosition.z);
+                            i.transform.localPosition = new Vector3(i.transform.localPosition.x, i.transform.localPosition.y - (.1f * 100 * (1080 / Screen.width)), i.transform.localPosition.z);
                     }
                     Destroy(tempImage.gameObject);
 

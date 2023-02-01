@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class CodeSlot : MonoBehaviour, IDropHandler
 {
@@ -9,6 +10,7 @@ public class CodeSlot : MonoBehaviour, IDropHandler
     public GameObject lastDrop;
     public bool droppedOn = false;
     int optionId;
+    
     public void OnDrop(PointerEventData eventData)
     {
         if (eventData.pointerDrag != null)
@@ -25,5 +27,12 @@ public class CodeSlot : MonoBehaviour, IDropHandler
     public bool CheckMatch()
     {
         return slotId == optionId;
+    }
+
+    public void ResetState(){
+        GetComponent<Image>().color = new Color32(0, 0, 0, 255);
+        lastDrop = null;
+        droppedOn = false;
+        optionId = -1;
     }
 }

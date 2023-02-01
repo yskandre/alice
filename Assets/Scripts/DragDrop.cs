@@ -15,6 +15,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private string fullText;
     private RectTransform self;
     private Vector2 initialSize;
+    private Vector2 initialPos;
     private CanvasGroup canvasGroup;
     public bool slotted = false;
 
@@ -22,6 +23,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         self = GetComponent<RectTransform>();
         initialSize = self.sizeDelta;
+        initialPos = self.anchoredPosition;
         fullText = textField.text;
         canvasGroup = GetComponent<CanvasGroup>();
     }
@@ -33,7 +35,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        GetComponent<Image>().color = new Color32(101, 101, 101, 255);
+        GetComponent<Image>().color = new Color32(0, 0, 0, 255);
         slotted = false;
         SimplifyText();
         self.sizeDelta = initialSize;
@@ -46,7 +48,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         if (!slotted)
         {
             textField.text = fullText;
-            textField.alignment = TextAlignmentOptions.Left;
+            textField.alignment = TextAlignmentOptions.Center;
         }
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
@@ -61,5 +63,13 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         if (shortText != "") textField.text = shortText;
         textField.alignment = TextAlignmentOptions.Center;
+    }
+
+    public void ResetState(){
+        self = GetComponent<RectTransform>();
+        self.sizeDelta = initialSize;
+        self.anchoredPosition = initialPos;
+        textField.text = fullText;
+        GetComponent<Image>().color = new Color32(0, 0, 0, 255);
     }
 }
