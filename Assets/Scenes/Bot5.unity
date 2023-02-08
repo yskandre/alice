@@ -7681,8 +7681,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fwdCase: {fileID: 2086567407}
-  leftCase: {fileID: 1624576687}
-  rightCase: {fileID: 996384313}
+  leftCase: {fileID: 996384313}
+  rightCase: {fileID: 1624576687}
   red: 159
   blue: 159
   green: 92

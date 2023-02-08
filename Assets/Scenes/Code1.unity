@@ -1479,7 +1479,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -750, y: 55}
+  m_AnchoredPosition: {x: -740, y: 17.5}
   m_SizeDelta: {x: 200, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &349485381
@@ -1509,7 +1509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb509f88b4738a4f93fbfa7dcd12536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotId: 0
+  slotId: 3
   lastDrop: {fileID: 0}
   droppedOn: 0
 --- !u!114 &349485383
@@ -1699,15 +1699,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-
-
-
-
-    function setPosition:
-
-'
+  m_text: "\n\n\n\n\nfunction setPosition:\n\n    x = "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
   m_sharedMaterial: {fileID: 4919541128396521990, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
@@ -1975,7 +1967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1723891714}
-  id: 0
+  id: 3
   shortText: 
   textField: {fileID: 1064655658}
   slotted: 0
@@ -2469,8 +2461,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Try it out by setting x and y to zero. Drag the pieces where you think
-    they belong.
+  m_text: You can also set a variable to the value of another variable.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
   m_sharedMaterial: {fileID: 4919541128396521990, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
@@ -2941,7 +2932,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: What bob means is to set his position to 0 for both his x and y coordinates.
+  m_text: What Bob means is to set his position to 0 for both his x and y coordinates.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
   m_sharedMaterial: {fileID: 4919541128396521990, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
@@ -3248,7 +3239,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Alice
+  m_text: Carol
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
   m_sharedMaterial: {fileID: 4919541128396521990, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
@@ -4206,7 +4197,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Code pieces with a green outline can be dragged onto slots with a red outline.
+  m_text: Try assigning y the value of x after the equation has resolved.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
   m_sharedMaterial: {fileID: 4919541128396521990, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
@@ -4742,7 +4733,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: What bob means is to set his position to 0 for both his x and y coordinates.
+  m_text: Try assigning x the value 0 again. You may have noticed that you don't
+    have a code piece with 0.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
   m_sharedMaterial: {fileID: 4919541128396521990, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
@@ -5012,7 +5004,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: =
+  m_text: '-'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
   m_sharedMaterial: {fileID: 4919541128396521990, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
@@ -5127,7 +5119,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -410, y: 55}
+  m_AnchoredPosition: {x: -400, y: 17.5}
   m_SizeDelta: {x: 200, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &735576378
@@ -5157,7 +5149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb509f88b4738a4f93fbfa7dcd12536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotId: 2
+  slotId: 5
   lastDrop: {fileID: 0}
   droppedOn: 0
 --- !u!114 &735576380
@@ -5535,8 +5527,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You assign a value by writing the variable, then the = sign, followed by
-    the value you want.
+  m_text: So you will have to build a mathematical equation that resolves to zero
+    instead!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
   m_sharedMaterial: {fileID: 4919541128396521990, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
@@ -5671,7 +5663,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
   m_sharedMaterial: {fileID: 4919541128396521990, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
@@ -7070,7 +7062,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Assigning a value to a variable is super easy!
+  m_text: Hello, I'm Carol, I take care of the challenge stages.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
   m_sharedMaterial: {fileID: 4919541128396521990, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
@@ -7815,7 +7807,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Affirmative, practice by repairing my function over there.
+  m_text: Let's learn some more about assignments! You can also use code to calculate
+    values.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
   m_sharedMaterial: {fileID: 4919541128396521990, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
@@ -8069,7 +8062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1723891714}
-  id: 2
+  id: 5
   shortText: 
   textField: {fileID: 1704870200}
   slotted: 0
@@ -8169,7 +8162,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bob
+  m_text: Carol
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
   m_sharedMaterial: {fileID: 4919541128396521990, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
@@ -8661,7 +8654,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Alice
+  m_text: Carol
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
   m_sharedMaterial: {fileID: 4919541128396521990, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
@@ -9345,7 +9338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1723891714}
-  id: 2
+  id: 0
   shortText: 
   textField: {fileID: 778923789}
   slotted: 0
@@ -9646,7 +9639,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Alice
+  m_text: Carol
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
   m_sharedMaterial: {fileID: 4919541128396521990, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
@@ -10860,7 +10853,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Alice
+  m_text: Carol
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
   m_sharedMaterial: {fileID: 4919541128396521990, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
@@ -10975,7 +10968,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -580, y: 145}
+  m_AnchoredPosition: {x: -430, y: 122.5}
   m_SizeDelta: {x: 100, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1549159914
@@ -11180,7 +11173,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Alice
+  m_text: Carol
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
   m_sharedMaterial: {fileID: 4919541128396521990, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
@@ -11634,7 +11627,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -580, y: 55}
+  m_AnchoredPosition: {x: -570, y: 17.5}
   m_SizeDelta: {x: 100, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1612675626
@@ -11664,7 +11657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb509f88b4738a4f93fbfa7dcd12536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotId: 1
+  slotId: 4
   lastDrop: {fileID: 0}
   droppedOn: 0
 --- !u!114 &1612675628
@@ -12048,7 +12041,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: x
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
   m_sharedMaterial: {fileID: 4919541128396521990, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
@@ -12265,7 +12258,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -410, y: 145}
+  m_AnchoredPosition: {x: -260, y: 122.5}
   m_SizeDelta: {x: 200, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1731146011
@@ -12295,7 +12288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb509f88b4738a4f93fbfa7dcd12536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotId: 2
+  slotId: 0
   lastDrop: {fileID: 0}
   droppedOn: 0
 --- !u!114 &1731146013
@@ -12796,7 +12789,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -750, y: 145}
+  m_AnchoredPosition: {x: -600, y: 122.5}
   m_SizeDelta: {x: 200, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1760281272
@@ -13125,7 +13118,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bob
+  m_text: Carol
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
   m_sharedMaterial: {fileID: 4919541128396521990, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
@@ -13495,7 +13488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1723891714}
-  id: 1
+  id: 4
   shortText: 
   textField: {fileID: 1479674604}
   slotted: 0
@@ -13730,7 +13723,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This code was used to set Bob's starting position when a level begins.
+  m_text: This way you can solve the puzzle even without any 0 pieces.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
   m_sharedMaterial: {fileID: 4919541128396521990, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
@@ -14307,6 +14300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   solvedCode: 000000000000000000
   solvedBot: 000000000000000000
+  challenge: {fileID: 0}
 --- !u!4 &1938408931
 Transform:
   m_ObjectHideFlags: 0
@@ -15954,7 +15948,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: x
+  m_text: 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}
   m_sharedMaterial: {fileID: 4919541128396521990, guid: 5e9c0c2edc2f19e43b7d7fcde63214ad, type: 2}

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class SystemData : MonoBehaviour
 {
-    public bool[] solvedCode = { false, false, false, false, false, false, false, false };
+    public bool[] solvedCode = { false, false, false, false, false, false, false, false, false, false };
     public bool[] solvedBot = { false, false, false, false, false, false, false, false, false };
     [SerializeField] GameObject challenge;
 
