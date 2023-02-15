@@ -23,7 +23,7 @@ public class AddCommand : MonoBehaviour
     [SerializeField] Canvas canvas;
     [SerializeField] GameObject loopIcon;
     [SerializeField] GameObject loopText;
-    [SerializeField] GameObject queueText;
+    [SerializeField] GameObject repeatText;
     [SerializeField] GameObject funcText;
     [SerializeField] GameObject victoryText;
     [SerializeField] GameObject lossText;
@@ -49,7 +49,7 @@ public class AddCommand : MonoBehaviour
     private int loopAmount;
     private bool loopActive = false;
     private int queueAmount;
-    private bool queueActive = false;
+    private bool repeatActive = false;
     private bool funcActive = false;
 
     // Start is called before the first frame update
@@ -114,18 +114,46 @@ public class AddCommand : MonoBehaviour
         Image tempImage;
         bool changedTile = false;
         MoveOrder m;
-        while (loopActive || orders.Count > 0)
+        while (repeatActive || loopActive || orders.Count > 0)
         {
             changedTile = false;
+            GameObject currentTile = null;
 
-            if (loopActive)
+            if (repeatActive)
             {
+                int dist = 10;
+                if (funcActive) dist = 20;
+
+                transform.position = new Vector3(transform.position.x + (directions[currentDir].x * dist), transform.position.y, transform.position.z + (directions[currentDir].y * dist));
+                changedTile = true;
+
+                currentTile = GameObject.Find(GetCurrentCoords());
+
+                if(currentTile == null) {
+                    transform.position = new Vector3(transform.position.x - (directions[currentDir].x * dist), transform.position.y, transform.position.z - (directions[currentDir].y * dist));
+                    changedTile = false;
+                    repeatActive = false;
+                    UpdateRepeatUI();
+                }
+                else if (currentTile.GetComponent<IfTile>() != null || 
+                        currentTile.GetComponent<SwitchTile>() != null || 
+                        currentTile.GetComponent<LoopTile>() != null|| 
+                        currentTile.GetComponent<RepeatTile>() != null) {
+                    repeatActive = false;
+                    UpdateRepeatUI();
+                }
+            }
+            else if (loopActive)
+            {
+                int dist = 10;
+                if (funcActive) dist = 20;
+
                 while (loopAmount > 0)
                 {
                     switch (loopCommand)
                     {
                         case MoveOrder.forward:
-                            transform.position = new Vector3(transform.position.x + (directions[currentDir].x * 10), transform.position.y, transform.position.z + (directions[currentDir].y * 10));
+                            transform.position = new Vector3(transform.position.x + (directions[currentDir].x * dist), transform.position.y, transform.position.z + (directions[currentDir].y * dist));
                             changedTile = true;
                             break;
                         case MoveOrder.left:
@@ -177,28 +205,6 @@ public class AddCommand : MonoBehaviour
                         }
                         ifActive = false;
                     }
-                }
-                else if (queueActive)
-                {
-                    if (orderImages.Count <= 0)
-                    {
-                        queueActive = false;
-                        queueAmount = 0;
-                        continue;
-                    }
-
-                    tempImage = orderImages.Dequeue();
-                    tempImage.transform.localPosition = new Vector3(tempImage.transform.localPosition.x, tempImage.transform.localPosition.y - (.5f * 100 * (1080 / Screen.width)), tempImage.transform.localPosition.z);
-                    foreach (Image i in orderImages)
-                    {
-                        i.transform.localPosition = new Vector3(i.transform.localPosition.x, i.transform.localPosition.y - (.1f * 100 * (1080 / Screen.width)), i.transform.localPosition.z);
-                    }
-                    Destroy(tempImage.gameObject);
-
-                    queueAmount--;
-
-                    if (queueAmount <= 0) queueActive = false;
-                    UpdateQueueUI();
                 }
                 else if (switchActive)
                 {
@@ -297,7 +303,7 @@ public class AddCommand : MonoBehaviour
                 yield return Wait();
                 continue;
             }
-            GameObject currentTile = GameObject.Find(GetCurrentCoords());
+            currentTile = GameObject.Find(GetCurrentCoords());
 
             if (currentTile == null || currentTile.GetComponent<NullTile>() != null || (currentTile.GetComponent<LockTile>() != null && !currentTile.GetComponent<LockTile>().isOpen()))
             {
@@ -334,10 +340,10 @@ public class AddCommand : MonoBehaviour
             {
                 currentTile.GetComponent<KeyTile>().ChangeLock();
             }
-            else if (currentTile.GetComponent<QueueTile>() != null)
+            else if (currentTile.GetComponent<RepeatTile>() != null)
             {
-                queueActive = true;
-                queueAmount = currentTile.GetComponent<QueueTile>().GetAmount();
+                repeatActive = true;
+                UpdateRepeatUI();
             }
             else if (currentTile.GetComponent<FunctionTile>() != null)
             {
@@ -374,7 +380,7 @@ public class AddCommand : MonoBehaviour
         funcActive = false;
         ifActive = false;
         loopActive = false;
-        queueActive = false;
+        repeatActive = false;
         switchActive = false;
 
         UpdateLoopUI();
@@ -423,10 +429,9 @@ public class AddCommand : MonoBehaviour
         loopText.GetComponentInChildren<TextMeshProUGUI>().text = loopAmount.ToString();
     }
 
-    public void UpdateQueueUI()
+    public void UpdateRepeatUI()
     {
-        queueText.SetActive(queueActive);
-        queueText.GetComponentInChildren<TextMeshProUGUI>().text = queueAmount.ToString();
+        repeatText.SetActive(repeatActive);
     }
 
     public void UpdateFuncUI()

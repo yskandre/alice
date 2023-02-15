@@ -10,6 +10,7 @@ public class SystemData : MonoBehaviour
     public bool[] solvedCode = { false, false, false, false, false, false, false, false, false, false };
     public bool[] solvedBot = { false, false, false, false, false, false, false, false, false };
     [SerializeField] GameObject challenge;
+    [SerializeField] GameObject challengeText;
 
     public static SystemData Instance;
 
@@ -29,14 +30,11 @@ public class SystemData : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name != "Main") return;
 
-        foreach(bool b in solvedCode){
-            if(!b) return;
-        }
-
         foreach(bool b in solvedBot){
             if(!b) return;
         }
 
         challenge.SetActive(true);
+        challengeText.SetActive(true);
     }
 }
