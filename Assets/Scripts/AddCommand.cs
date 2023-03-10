@@ -68,8 +68,10 @@ public class AddCommand : MonoBehaviour
     {
         if (canExecute)
         {
-            Image orderImage = Instantiate(forward, new Vector3(0f, 0f, 0f), Quaternion.identity, parent);
-            orderImage.transform.localPosition = new Vector3(890 * (1920 / Screen.width), (470 - (queuePos * 150f)) * (1080 / Screen.height), 0);
+            Image orderImage = Instantiate(forward, new Vector3(0, 0, 0), Quaternion.identity, parent);
+            orderImage.gameObject.GetComponent<Button>().enabled = false;
+            
+            orderImage.transform.localPosition = new Vector3(890, 470 - (queuePos * 150f), 0);
             orderImages.Enqueue(orderImage);
             orders.Enqueue(MoveOrder.forward);
             queuePos += .1f;
@@ -80,8 +82,10 @@ public class AddCommand : MonoBehaviour
     {
         if (canExecute)
         {
-            Image orderImage = Instantiate(left, new Vector3(0f, 0f, 0f), Quaternion.identity, parent);
-            orderImage.transform.localPosition = new Vector3(890 * (1920 / Screen.width), (470 - (queuePos * 150f)) * (1080 / Screen.height), 0);
+            Image orderImage = Instantiate(left, new Vector3(0, 0, 0), Quaternion.identity, parent);
+            orderImage.gameObject.GetComponent<Button>().enabled = false;
+            
+            orderImage.transform.localPosition = new Vector3(890, 470 - (queuePos * 150f), 0);
             orderImages.Enqueue(orderImage);
             orders.Enqueue(MoveOrder.left);
             queuePos += .1f;
@@ -92,8 +96,10 @@ public class AddCommand : MonoBehaviour
     {
         if (canExecute)
         {
-            Image orderImage = Instantiate(right, new Vector3(0f, 0f, 0f), Quaternion.identity, parent);
-            orderImage.transform.localPosition = new Vector3(890 * (1920 / Screen.width), (470 - (queuePos * 150f)) * (1080 / Screen.height), 0);
+            Image orderImage = Instantiate(right, new Vector3(0, 0, 0), Quaternion.identity, parent);
+            orderImage.gameObject.GetComponent<Button>().enabled = false;
+            
+            orderImage.transform.localPosition = new Vector3(890, 470 - (queuePos * 150f), 0);
             orderImages.Enqueue(orderImage);
             orders.Enqueue(MoveOrder.right);
             queuePos += .1f;
